@@ -39,7 +39,7 @@ def _remove_commas(m):
 
 
 def _expand_decimal_point(m):
-    return m.group(1).replace(".", " point ")
+    return m.group(1).replace(".", " ɗugo ")
 
 
 def _expand_dollars(m):
@@ -50,17 +50,17 @@ def _expand_dollars(m):
     dollars = int(parts[0]) if parts[0] else 0
     cents = int(parts[1]) if len(parts) > 1 and parts[1] else 0
     if dollars and cents:
-        dollar_unit = "dollar" if dollars == 1 else "dollars"
-        cent_unit = "cent" if cents == 1 else "cents"
+        dollar_unit = "naira" if dollars == 1 else "naira"
+        cent_unit = "kwabo" if cents == 1 else "kwabo"
         return "%s %s, %s %s" % (dollars, dollar_unit, cents, cent_unit)
     elif dollars:
-        dollar_unit = "dollar" if dollars == 1 else "dollars"
+        dollar_unit = "naira" if dollars == 1 else "naira"
         return "%s %s" % (dollars, dollar_unit)
     elif cents:
-        cent_unit = "cent" if cents == 1 else "cents"
+        cent_unit = "kobo" if cents == 1 else "kobo"
         return "%s %s" % (cents, cent_unit)
     else:
-        return "zero dollars"
+        return "naira supuli"
 
 
 def _expand_ordinal(m):
